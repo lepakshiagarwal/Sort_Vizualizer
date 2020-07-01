@@ -61,9 +61,13 @@ def _selection_sort():
         swap(barList[min] , barList[i])        
         yield
 
+#merge_sort
+def merge_sort():
+    global barList
+    global lengthList
 
+    
 #Triggering Fuctions
-
 def insertion_sort():     
     global worker
     worker = _insertion_sort()
@@ -77,9 +81,27 @@ def selection_sort():
 def bubble_sort():     
     global worker
     worker = _bubble_sort()
-    animate()    
+    animate()
 
+def quick_sort():
+    global worker
+    worker = _bubble_sort()
+    animate()
 
+def merge_sort():
+    global worker
+    worker = _bubble_sort()
+    animate()
+
+def heap_sort():
+    global worker
+    worker = _bubble_sort()
+    animate()
+
+def counting_sort():
+    global worker
+    worker = _bubble_sort()
+    animate()
 
 #Animation Function
 def animate():      
@@ -118,8 +140,6 @@ def generate():
         length = bar[3] - bar[1]
         lengthList.append(length)
 
-    #Maximum is colored Red
-    #Minimum is colored Black
     for i in range(len(lengthList)-1):
         if lengthList[i] == min(lengthList):
             canvas.itemconfig(barList[i], fill='grey')
@@ -141,10 +161,10 @@ canvas.grid(column=0,row=0, columnspan = 50)
 insert = tk.Button(window, text='Insertion Sort', command=insertion_sort)
 select = tk.Button(window, text='Selection Sort', command=selection_sort)
 bubble = tk.Button(window, text='Bubble Sort', command=bubble_sort)
-quick = tk.Button(window, text='Quick Sort', command=bubble_sort)#quick_sort)
-merge = tk.Button(window, text='Merge Sort', command=bubble_sort)#merge_sort)
-heap = tk.Button(window, text='Heap Sort', command=bubble_sort)#heap_sort)
-counting = tk.Button(window, text='Counting Sort', command=bubble_sort)#counting_sort)
+quick = tk.Button(window, text='Quick Sort', command= quick_sort)
+merge = tk.Button(window, text='Merge Sort', command= merge_sort)
+heap = tk.Button(window, text='Heap Sort', command= heap_sort)
+counting = tk.Button(window, text='Counting Sort', command= counting_sort)
 shuffle = tk.Button(window, text='Shuffle', command=generate)
 insert.grid(column=1,row=1)
 select.grid(column=2,row=1)
